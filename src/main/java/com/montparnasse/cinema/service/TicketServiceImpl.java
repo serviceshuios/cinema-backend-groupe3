@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.montparnasse.cinema.dao.ITicketDao;
 import com.montparnasse.cinema.domaine.Ticket;
 
-public class TicketServiceImpl implements IService<Ticket>{
+public class TicketServiceImpl implements ITicketService{
 	
 	@Autowired
 	private ITicketDao daoTicket;

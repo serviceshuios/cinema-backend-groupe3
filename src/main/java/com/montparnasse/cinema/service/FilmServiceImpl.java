@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.montparnasse.cinema.dao.IFilmDao;
 import com.montparnasse.cinema.domaine.Film;
 
-public class FilmServiceImpl implements IService<Film>{
+public class FilmServiceImpl implements IFilmService{
 	
 	@Autowired
 	private IFilmDao daoFilm;

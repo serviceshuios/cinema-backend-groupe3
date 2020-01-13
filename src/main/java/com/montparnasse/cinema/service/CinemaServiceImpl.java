@@ -10,7 +10,7 @@ import com.montparnasse.cinema.domaine.Cinema;
 
 
 @Service
-public class CinemaServiceImpl implements IService<Cinema>{
+public class CinemaServiceImpl implements ICinemaService{
 
 	@Autowired
 	private ICinemaDao daoCinema;

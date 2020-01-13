@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.montparnasse.cinema.dao.IProjectionDao;
 import com.montparnasse.cinema.domaine.ProjectionFilm;
 
-public class ProjectionServiceImpl implements IService<ProjectionFilm>{
+public class ProjectionServiceImpl implements IProjectionService{
 	
 	@Autowired
 	private IProjectionDao daoProjection;

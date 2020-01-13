@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.montparnasse.cinema.dao.ISeanceDao;
 import com.montparnasse.cinema.domaine.Seance;
 
-public class SeanceServiceImpl implements IService<Seance>{
+public class SeanceServiceImpl implements ISeanceService{
 
 	@Autowired
 	private ISeanceDao daoSeance; 

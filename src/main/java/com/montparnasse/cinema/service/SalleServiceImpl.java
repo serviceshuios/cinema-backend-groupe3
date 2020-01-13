@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.montparnasse.cinema.dao.ISalleDao;
 import com.montparnasse.cinema.domaine.Salle;
 
-public class SalleServiceImpl implements IService<Salle>{
+public class SalleServiceImpl implements ISalleService{
 	
 	@Autowired
 	private ISalleDao daoSalle;
