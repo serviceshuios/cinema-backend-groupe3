@@ -21,6 +21,9 @@ public class Ticket implements Serializable{
 	
 	@ManyToOne
 	private ProjectionFilm projectionFilm;
+	
+	@ManyToOne
+	private Place place;
 
 	
 	public Long getId() {
@@ -52,6 +55,18 @@ public class Ticket implements Serializable{
 	}
 	public void setReservee(boolean reservee) {
 		this.reservee = reservee;
+	}
+	public ProjectionFilm getProjectionFilm() {
+		return projectionFilm;
+	}
+	public void setProjectionFilm(ProjectionFilm projectionFilm) {
+		this.projectionFilm = projectionFilm;
+	}
+	public Place getPlace() {
+		return place;
+	}
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 	
 	

@@ -24,7 +24,7 @@ public class Place implements Serializable{
 	@ManyToOne
 	private Salle salle;
 	
-	@OneToMany(mappedBy = "projectionFilm")
+	@OneToMany(mappedBy = "place")
 	private List<Ticket> tickets;
 	
 	public Place() {
