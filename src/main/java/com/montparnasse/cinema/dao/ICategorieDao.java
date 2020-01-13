@@ -10,3 +10,4 @@ import com.montparnasse.cinema.domaine.Categorie;
 public interface ICategorieDao extends JpaRepository<Categorie, Long> {
 
 } // fin interface
+ 
