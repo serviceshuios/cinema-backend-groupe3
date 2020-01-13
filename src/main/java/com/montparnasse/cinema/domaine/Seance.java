@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Seance implements Serializable{
@@ -17,6 +18,10 @@ public class Seance implements Serializable{
 	
 	private Date heureDebut;
 
+	@OneToOne
+	private ProjectionFilm projectionFilm;
+
+	
 	public Long getId() {
 		return id;
 	}
