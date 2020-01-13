@@ -10,7 +10,7 @@ import com.montparnasse.cinema.dao.ICategorieDao;
 import com.montparnasse.cinema.domaine.Categorie;
 
 @Service
-public class CategorieServiceImpl implements IService<Categorie>{
+public class CategorieServiceImpl implements ICategorieService{
 
 	@Autowired
 	private ICategorieDao daoCategorie;
