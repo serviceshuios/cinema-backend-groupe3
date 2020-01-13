@@ -6,12 +6,17 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Embeddable
 public class SalleFilmId implements Serializable {
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="salleId")
 	private Salle salle;
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="filmId")
 	private Film film;

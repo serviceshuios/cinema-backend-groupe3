@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Ticket implements Serializable{
 	
@@ -20,8 +22,10 @@ public class Ticket implements Serializable{
 	private boolean reservee;
 	
 	@ManyToOne
+	@JsonIgnore
 	private ProjectionFilm projectionFilm;
 	
+
 	@ManyToOne
 	private Place place;
 
