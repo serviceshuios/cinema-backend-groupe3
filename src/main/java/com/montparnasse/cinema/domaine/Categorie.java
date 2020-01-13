@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Cateogorie {
+public class Categorie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

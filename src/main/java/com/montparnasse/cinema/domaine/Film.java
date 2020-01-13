@@ -1,5 +1,6 @@
 package com.montparnasse.cinema.domaine;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Film {
+public class Film implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +27,7 @@ public class Film {
 	private Date dateSortie;
 	
 	@ManyToOne
-	private Cateogorie categorie;
+	private Categorie categorie;
 
 	public Long getId() {
 		return id;
@@ -76,11 +77,11 @@ public class Film {
 		this.dateSortie = dateSortie;
 	}
 
-	public Cateogorie getCategorie() {
+	public Categorie getCategorie() {
 		return categorie;
 	}
 
-	public void setCategorie(Cateogorie categorie) {
+	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
 	
