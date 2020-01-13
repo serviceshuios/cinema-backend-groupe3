@@ -3,10 +3,12 @@ package com.montparnasse.cinema.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.ISalleDao;
 import com.montparnasse.cinema.domaine.Salle;
 
+@Service
 public class SalleServiceImpl implements ISalleService{
 	
 	@Autowired

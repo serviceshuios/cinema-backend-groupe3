@@ -3,10 +3,12 @@ package com.montparnasse.cinema.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.ITicketDao;
 import com.montparnasse.cinema.domaine.Ticket;
 
+@Service
 public class TicketServiceImpl implements ITicketService{
 	
 	@Autowired
