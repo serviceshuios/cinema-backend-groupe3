@@ -17,6 +17,7 @@ public class Ville {
 	private double latitude;
 	private double altitude;
 	
+	
 	/* Constructeurs */
 	public Ville() {}
 
