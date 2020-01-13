@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Salle implements Serializable{
 
@@ -21,6 +23,7 @@ public class Salle implements Serializable{
 	private String name;
 	private int nombrePlaces;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Cinema cinema;
 	
