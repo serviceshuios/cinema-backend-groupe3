@@ -24,7 +24,7 @@ public class Salle implements Serializable{
 	@ManyToOne
 	private Cinema cinema;
 	
-	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "place")
+	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "salle")
 	private List<Place> places;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "id.salle")
