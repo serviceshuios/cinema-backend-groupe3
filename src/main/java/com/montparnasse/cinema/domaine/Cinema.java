@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cinema implements Serializable{
@@ -19,7 +20,9 @@ public class Cinema implements Serializable{
 	private double altitude;
 	private int nombreSalles;
 	
-	  
+	/*----------association-----------*/  
+	@ManyToOne
+	private Ville ville;
 	
 	/*------constructeur vide----*/
 	public Cinema() {
