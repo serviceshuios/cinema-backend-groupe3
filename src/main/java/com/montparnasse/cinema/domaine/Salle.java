@@ -1,6 +1,7 @@
 package com.montparnasse.cinema.domaine;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -26,6 +26,9 @@ public class Salle implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "place")
 	private List<Place> places;
+	
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "id.salle")
+	private List<ProjectionFilm> projectionFilm = new ArrayList<ProjectionFilm>();
 	
 	public Salle() {
 		super();
@@ -65,8 +68,11 @@ public class Salle implements Serializable{
 	public void setPlaces(List<Place> places) {
 		this.places = places;
 	}
-	
-	
-	
+	public List<ProjectionFilm> getProjectionFilm() {
+		return projectionFilm;
+	}
+	public void setProjectionFilm(List<ProjectionFilm> projectionFilm) {
+		this.projectionFilm = projectionFilm;
+	}
 	
 }

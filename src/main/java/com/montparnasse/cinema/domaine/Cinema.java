@@ -1,12 +1,15 @@
 package com.montparnasse.cinema.domaine;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cinema implements Serializable{
@@ -24,10 +27,11 @@ public class Cinema implements Serializable{
 	@ManyToOne
 	private Ville ville;
 	
+	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "cinema")
+	List<Salle> salles;
+	
 	/*------constructeur vide----*/
-	public Cinema() {
-		super();
-	}
+	public Cinema() {}
 	
 	/*-----------constructeur-----*/
 
@@ -76,6 +80,14 @@ public class Cinema implements Serializable{
 	}
 	public void setNombreSalles(int nombreSalles) {
 		this.nombreSalles = nombreSalles;
+	}
+
+	public List<Salle> getSalles() {
+		return salles;
+	}
+
+	public void setSalles(List<Salle> salles) {
+		this.salles = salles;
 	}
 
 	/*-------------------toString-----------*/
