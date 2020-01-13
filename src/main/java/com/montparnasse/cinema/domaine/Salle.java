@@ -1,11 +1,16 @@
 package com.montparnasse.cinema.domaine;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Salle implements Serializable{
@@ -15,6 +20,12 @@ public class Salle implements Serializable{
 	private Long id;
 	private String name;
 	private int nombrePlaces;
+	
+	@ManyToOne
+	private Cinema cinema;
+	
+	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "place")
+	private List<Place> places;
 	
 	public Salle() {
 		super();
@@ -42,10 +53,20 @@ public class Salle implements Serializable{
 	public void setNombrePlaces(int nombrePlaces) {
 		this.nombrePlaces = nombrePlaces;
 	}
-	@Override
-	public String toString() {
-		return "Salle [id=" + id + ", name=" + name + ", nombrePlaces=" + nombrePlaces + "]";
+	public Cinema getCinema() {
+		return cinema;
 	}
+	public void setCinema(Cinema cinema) {
+		this.cinema = cinema;
+	}
+	public List<Place> getPlaces() {
+		return places;
+	}
+	public void setPlaces(List<Place> places) {
+		this.places = places;
+	}
+	
+	
 	
 	
 }

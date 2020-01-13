@@ -1,11 +1,14 @@
 package com.montparnasse.cinema.domaine;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Place implements Serializable{
@@ -17,6 +20,12 @@ public class Place implements Serializable{
 	private double longitude;
 	private double latitude;
 	private double altidude;
+	
+	@ManyToOne
+	private Salle salle;
+	
+	@OneToMany(mappedBy = "ticket")
+	private List<Ticket> tickets;
 	
 	public Place() {
 		super();
@@ -58,11 +67,19 @@ public class Place implements Serializable{
 	public void setAltidude(double altidude) {
 		this.altidude = altidude;
 	}
-	@Override
-	public String toString() {
-		return "Place [id=" + id + ", numero=" + numero + ", longitude=" + longitude + ", latitude=" + latitude
-				+ ", altidude=" + altidude + "]";
+	public Salle getSalle() {
+		return salle;
 	}
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+
 	
 	
 }
