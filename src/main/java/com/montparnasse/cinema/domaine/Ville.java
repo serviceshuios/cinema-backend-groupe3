@@ -1,4 +1,4 @@
-package com.montparnasse.cinema.dao;
+package com.montparnasse.cinema.domaine;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +16,6 @@ public class Ville {
 	private double longitude;
 	private double latitude;
 	private double altitude;
-	
 	
 	/* Constructeurs */
 	public Ville() {}
