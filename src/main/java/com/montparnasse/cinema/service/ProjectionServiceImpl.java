@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.IProjectionDao;
 import com.montparnasse.cinema.domaine.ProjectionFilm;
+import com.montparnasse.cinema.domaine.SalleFilmId;
 
 @Service
 public class ProjectionServiceImpl implements IProjectionService{
@@ -36,17 +37,28 @@ public class ProjectionServiceImpl implements IProjectionService{
 
 	@Override
 	public boolean deleteById(Long id) {
-		daoProjection.deleteById(id);
-		return true;
+		return false;
 	}
 
 	@Override
 	public ProjectionFilm getById(Long id) {
-		return daoProjection.findById(id).get();
+		return null;
 	}
 
 	@Override
 	public List<ProjectionFilm> getAll() {
 		return daoProjection.findAll();
 	}
+
+	@Override
+	public ProjectionFilm getProjectionFilm(SalleFilmId id) {
+		return daoProjection.findById(id).get();
+	}
+
+	@Override
+	public boolean deleteProjectionFilm(SalleFilmId id) {
+		daoProjection.deleteById(id);
+		return true;
+	}
+	
 }
