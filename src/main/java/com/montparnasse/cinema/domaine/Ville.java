@@ -1,11 +1,13 @@
 package com.montparnasse.cinema.domaine;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Ville implements Serializable{
@@ -18,6 +20,9 @@ public class Ville implements Serializable{
 	private double longitude;
 	private double latitude;
 	private double altitude;
+	
+	@OneToMany(mappedBy = "ville")
+	private List<Cinema> cinemas;
 	
 	/* Constructeurs */
 	public Ville() {}

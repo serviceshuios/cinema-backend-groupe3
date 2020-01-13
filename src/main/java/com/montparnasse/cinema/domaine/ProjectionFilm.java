@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ProjectionFilm implements Serializable{
 	
@@ -19,9 +21,11 @@ public class ProjectionFilm implements Serializable{
 	private double prix;
 	
 	@OneToOne
+	@JsonIgnore
 	private Seance seance;
 	
 	@OneToMany(mappedBy = "projectionFilm")
+	@JsonIgnore
 	private List<Ticket> tickets = new ArrayList<Ticket>();
 	
 	public SalleFilmId getId() {

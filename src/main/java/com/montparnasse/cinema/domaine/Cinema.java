@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Cinema implements Serializable{
 
@@ -25,6 +27,7 @@ public class Cinema implements Serializable{
 	
 	/*----------association-----------*/  
 	@ManyToOne
+	@JsonIgnore
 	private Ville ville;
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "cinema")

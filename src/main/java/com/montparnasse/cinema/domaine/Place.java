@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Place implements Serializable{
 
@@ -22,9 +24,11 @@ public class Place implements Serializable{
 	private double altidude;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Salle salle;
 	
 	@OneToMany(mappedBy = "place")
+	@JsonIgnore
 	private List<Ticket> tickets;
 	
 	public Place() {
