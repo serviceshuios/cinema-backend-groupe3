@@ -8,16 +8,17 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Embeddable
 public class SalleFilmId implements Serializable {
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="salleId")
 	private Salle salle;
 	
-	@JsonIgnore
-	@ManyToOne
+//	@JsonIgnore
+	@ManyToOne 
 	@JoinColumn(name="filmId")
 	private Film film;
 	

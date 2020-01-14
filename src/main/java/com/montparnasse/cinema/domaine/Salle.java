@@ -31,6 +31,7 @@ public class Salle implements Serializable{
 	private List<Place> places;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "id.salle")
+	@JsonIgnore
 	private List<ProjectionFilm> projectionFilm = new ArrayList<ProjectionFilm>();
 	
 	public Salle() {
