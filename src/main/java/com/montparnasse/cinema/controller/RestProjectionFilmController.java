@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -55,11 +56,11 @@ public class RestProjectionFilmController {
     }
  
 	// ajouter une projection
-	@RequestMapping(value = "/projections/{numSalle}/{numFilm}/{prix}", //
+	@RequestMapping(value = "/projections/{numSalle}/{numFilm}/{numDate}/{numPrix}", //
             method = RequestMethod.POST, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-	public ProjectionFilm ajouterProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm, @PathVariable("prix") Double prix) {
+	public ProjectionFilm ajouterProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm, @PathVariable("numPrix") Double prix, @PathVariable("numDate") Date date) {
 		//Création de la clé composée
 		SalleFilmId sfid = new SalleFilmId();
 		sfid.setFilm(serviceFilm.getById(numFilm));
