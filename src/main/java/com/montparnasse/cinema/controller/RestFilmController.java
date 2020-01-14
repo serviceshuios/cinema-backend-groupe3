@@ -33,7 +33,7 @@ public class RestFilmController {
 	} // fin getAll
 	
 	// récupérer un films
-	@RequestMapping(value = "/films/{numCinema}", //
+	@RequestMapping(value = "/films/{numFilm}", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
