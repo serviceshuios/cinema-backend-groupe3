@@ -45,7 +45,7 @@ public class RestProjectionFilmController {
 		return service.getById(numProjection);
     }
  
-
+	// ajouter une projection
 	@RequestMapping(value = "/projections/", //
             method = RequestMethod.POST, //
             produces = { MediaType.APPLICATION_JSON_VALUE})

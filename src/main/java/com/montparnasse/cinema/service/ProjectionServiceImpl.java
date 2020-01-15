@@ -36,12 +36,13 @@ public class ProjectionServiceImpl implements IProjectionService{
 
 	@Override
 	public boolean deleteById(Long id) {
-		return false;
+		daoProjection.deleteById(id);
+		return true;
 	}
 
 	@Override
 	public ProjectionFilm getById(Long id) {
-		return null;
+		return daoProjection.findById(id).get();
 	}
 
 	@Override
