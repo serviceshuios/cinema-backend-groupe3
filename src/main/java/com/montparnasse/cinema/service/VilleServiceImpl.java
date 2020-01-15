@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.IVilleDao;
+import com.montparnasse.cinema.domaine.Cinema;
 import com.montparnasse.cinema.domaine.Ville;
 
 @Service
@@ -46,6 +47,16 @@ public class VilleServiceImpl implements IVilleService{
 	@Override
 	public List<Ville> getAll() {
 		return daoVille.findAll();
+	}
+
+	@Override
+	public List<Cinema> getCinemasVille(Long id) {
+		return daoVille.getCinemasVille(id);
+	}
+
+	@Override
+	public Ville getByName(String name) {
+		return daoVille.getByName(name);
 	}
 	
 }

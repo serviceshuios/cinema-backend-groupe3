@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.montparnasse.cinema.domaine.Cinema;
 import com.montparnasse.cinema.domaine.Ville;
 import com.montparnasse.cinema.service.IVilleService;
 
@@ -37,6 +38,24 @@ public class RestVilleController {
 	public Ville getVille(@PathVariable("numVille") Long id) {
 		return service.getById(id);
 	}
+	
+	// récupérer une ville by nom
+		@RequestMapping(value = "/villes/{nomVille}", //
+				method = RequestMethod.GET, //
+				produces = { MediaType.APPLICATION_JSON_VALUE })
+		@ResponseBody
+		public Ville getVilleByNom(@PathVariable("nomVille") String nom) {
+			return service.getByName(nom);
+		}
+	
+	// récupérer la liste de cinema d'une ville
+		@RequestMapping(value = "/villes/{numVille}/cinemas", //
+				method = RequestMethod.GET, //
+				produces = { MediaType.APPLICATION_JSON_VALUE })
+		@ResponseBody
+		public List<Cinema> getCinemasVille(@PathVariable("numVille") Long id) {
+			return service.getCinemasVille(id);
+		}
 
 	// ajouter une ville
 	@RequestMapping(value = "/villes", //
