@@ -21,7 +21,7 @@ public class Place implements Serializable{
 	private int numero;
 	private double longitude;
 	private double latitude;
-	private double altidude;
+	private double altitude;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -34,12 +34,12 @@ public class Place implements Serializable{
 	public Place() {
 		super();
 	}
-	public Place(int numero, double longitude, double latitude, double altidude) {
+	public Place(int numero, double longitude, double latitude, double altitude) {
 		super();
 		this.numero = numero;
 		this.longitude = longitude;
 		this.latitude = latitude;
-		this.altidude = altidude;
+		this.altitude = altitude;
 	}
 	public Long getId() {
 		return id;
@@ -65,11 +65,11 @@ public class Place implements Serializable{
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public double getAltidude() {
-		return altidude;
+	public double getAltitude() {
+		return altitude;
 	}
-	public void setAltidude(double altidude) {
-		this.altidude = altidude;
+	public void setAltitude(double altitude) {
+		this.altitude = altitude;
 	}
 	public Salle getSalle() {
 		return salle;
