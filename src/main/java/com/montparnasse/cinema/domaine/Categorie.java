@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Categorie {
 
@@ -17,6 +19,7 @@ public class Categorie {
 	private String name;
 
 	@OneToMany(mappedBy = "categorie")
+	@JsonIgnore
 	private List<Film> film;
 
 	public Long getId() {

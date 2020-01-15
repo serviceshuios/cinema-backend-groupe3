@@ -37,11 +37,10 @@ public class Film implements Serializable{
 	private Date dateSortie;
 	
 	@ManyToOne
-	@JsonIgnore
 	private Categorie categorie;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "film")
-//	@JsonIgnore
+	@JsonIgnore
 	private List<ProjectionFilm> projectionFilm = new ArrayList<ProjectionFilm>();
 
 	public Long getId() {

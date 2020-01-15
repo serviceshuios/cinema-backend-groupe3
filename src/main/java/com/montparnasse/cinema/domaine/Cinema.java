@@ -27,7 +27,6 @@ public class Cinema implements Serializable{
 	
 	/*----------association-----------*/  
 	@ManyToOne
-	@JsonIgnore
 	private Ville ville;
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "cinema")

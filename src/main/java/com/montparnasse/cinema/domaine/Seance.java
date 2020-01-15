@@ -21,6 +21,7 @@ public class Seance implements Serializable{
 	private Date heureDebut;
 
 	@OneToOne
+	@JsonIgnore
 	private ProjectionFilm projectionFilm;
 
 	

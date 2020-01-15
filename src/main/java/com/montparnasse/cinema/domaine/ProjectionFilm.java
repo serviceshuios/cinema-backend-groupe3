@@ -22,9 +22,7 @@ import javax.persistence.UniqueConstraint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "ProjectionFilm", //
-uniqueConstraints = { //
-		 @UniqueConstraint(name = "FILM_SALLE_UK", columnNames = { "Film_Id", "Salle_Id" }) })
+@Table(name = "ProjectionFilm")
 public class ProjectionFilm implements Serializable{
 	
 	@Id
@@ -34,22 +32,18 @@ public class ProjectionFilm implements Serializable{
 	private Date dateProjection;
 	private double prix;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
+	@ManyToOne
     @JoinColumn(name = "Film_Id")
     private Film film;
  
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "Salle_Id")
     private Salle salle;
 	
 	@OneToOne
-	@JsonIgnore
 	private Seance seance;
 	
 	@OneToMany(mappedBy = "projectionFilm")
-	@JsonIgnore
 	private List<Ticket> tickets = new ArrayList<Ticket>();
 	
 	

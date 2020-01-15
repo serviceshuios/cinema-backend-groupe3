@@ -31,15 +31,15 @@ public class Salle implements Serializable{
 	private String name;
 	private int nombrePlaces;
 	
-	@JsonIgnore
 	@ManyToOne
+	@JsonIgnore
 	private Cinema cinema;
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "salle")
 	private List<Place> places;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "salle")
-//	@JsonIgnore
+	@JsonIgnore
 	private List<ProjectionFilm> projectionFilm = new ArrayList<ProjectionFilm>();
 	
 	public Salle() {
