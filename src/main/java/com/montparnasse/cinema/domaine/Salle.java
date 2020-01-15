@@ -25,7 +25,7 @@ public class Salle implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Salle_Id", nullable = false)
+	@Column(name = "Salle_Id")
 	private Long id;
 	@Column(name = "Salle_Name", nullable = false)
 	private String name;

@@ -29,19 +29,19 @@ public class ProjectionFilm implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Id", nullable = false)
+	@Column(name = "Id")
 	private Long id;
 	private Date dateProjection;
 	private double prix;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-    @JoinColumn(name = "Film_Id", nullable = false)
+    @JoinColumn(name = "Film_Id")
     private Film film;
  
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinColumn(name = "Salle_Id", nullable = false)
+    @JoinColumn(name = "Salle_Id")
     private Salle salle;
 	
 	@OneToOne
