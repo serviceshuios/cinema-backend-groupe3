@@ -31,7 +31,7 @@ public class RestVilleController {
 	} // fin getAll
 
 	// récupérer une ville
-	@RequestMapping(value = "/villes/{numVille}", //
+	@RequestMapping(value = "/villes/byId/{numVille}", //
 			method = RequestMethod.GET, //
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
@@ -40,7 +40,7 @@ public class RestVilleController {
 	}
 	
 	// récupérer une ville by nom
-		@RequestMapping(value = "/villes/{nomVille}", //
+		@RequestMapping(value = "/villes/byName/{nomVille}", //
 				method = RequestMethod.GET, //
 				produces = { MediaType.APPLICATION_JSON_VALUE })
 		@ResponseBody
