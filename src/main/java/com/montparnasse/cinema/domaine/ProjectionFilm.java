@@ -82,5 +82,30 @@ public class ProjectionFilm implements Serializable{
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Film getFilm() {
+		return film;
+	}
+
+	public void setFilm(Film film) {
+		this.film = film;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+
 	
 }

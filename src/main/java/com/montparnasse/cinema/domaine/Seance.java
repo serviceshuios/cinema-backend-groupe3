@@ -39,6 +39,14 @@ public class Seance implements Serializable{
 	public void setHeureDebut(Date heureDebut) {
 		this.heureDebut = heureDebut;
 	}
+
+	public ProjectionFilm getProjectionFilm() {
+		return projectionFilm;
+	}
+
+	public void setProjectionFilm(ProjectionFilm projectionFilm) {
+		this.projectionFilm = projectionFilm;
+	}
 	
 	
 }

@@ -92,6 +92,16 @@ public class Cinema implements Serializable{
 	public void setSalles(List<Salle> salles) {
 		this.salles = salles;
 	}
+	
+	
+
+	public Ville getVille() {
+		return ville;
+	}
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
 
 	/*-------------------toString-----------*/
 	@Override
