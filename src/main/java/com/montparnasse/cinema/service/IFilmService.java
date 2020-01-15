@@ -4,4 +4,5 @@ import com.montparnasse.cinema.domaine.Film;
 
 public interface IFilmService extends IService<Film>{
 
+	public Film getByTitre(String name);
 }

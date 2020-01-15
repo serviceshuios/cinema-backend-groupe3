@@ -49,4 +49,9 @@ public class FilmServiceImpl implements IFilmService{
 	public List<Film> getAll() {
 		return daoFilm.findAll();
 	}
+
+	@Override
+	public Film getByTitre(String name) {
+		return daoFilm.getByTitre(name);
+	}
 }

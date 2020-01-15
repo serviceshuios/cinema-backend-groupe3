@@ -8,5 +8,8 @@ import com.montparnasse.cinema.domaine.Salle;
 @Repository
 @Transactional
 public interface ISalleDao extends JpaRepository<Salle, Long>{
+	
+	
+	public Salle getByName(String name);
 
 } // fin interface

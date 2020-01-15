@@ -33,13 +33,22 @@ public class RestFilmController {
 	} // fin getAll
 	
 	// récupérer un films
-	@RequestMapping(value = "/films/{numFilm}", //
+	@RequestMapping(value = "/films/byId/{numFilm}", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
     public Film getFilm(@PathVariable("numFilm") Long id) {
 		return service.getById(id);
     }
+	
+	// récupérer un film via nom
+		@RequestMapping(value = "/films/byTitre/{nomFilm}", //
+	            method = RequestMethod.GET, //
+	            produces = { MediaType.APPLICATION_JSON_VALUE})
+	    @ResponseBody
+	    public Film getFilm(@PathVariable("nomFilm") String name) {
+			return service.getByTitre(name);
+	    }
  
 	// ajouter un films
 	@RequestMapping(value = "/films", //

@@ -49,4 +49,9 @@ public class SalleServiceImpl implements ISalleService{
 	public List<Salle> getAll() {
 		return daoSalle.findAll();
 	}
+
+	@Override
+	public Salle getByName(String name) {
+		return daoSalle.getByName(name);
+	}
 }

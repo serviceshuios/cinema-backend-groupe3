@@ -30,13 +30,22 @@ public class RestSalleController {
 	} // fin getAll
 
 	// récupérer une salle
-	@RequestMapping(value = "/salles/{numSalle}", //
+	@RequestMapping(value = "/salles/byId/{numSalle}", //
 			method = RequestMethod.GET, //
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public Salle getSalle(@PathVariable("numSalle") Long id) {
 		return service.getById(id);
 	}
+	
+	// récupérer une salle via le nom
+		@RequestMapping(value = "/salles/byName/{nomSalle}", //
+				method = RequestMethod.GET, //
+				produces = { MediaType.APPLICATION_JSON_VALUE })
+		@ResponseBody
+		public Salle getSalleByName(@PathVariable("nomSalle") String name) {
+			return service.getByName(name);
+		}
 
 	// ajouter une salle
 	@RequestMapping(value = "/salles", //

@@ -8,5 +8,7 @@ import com.montparnasse.cinema.domaine.Film;
 @Repository
 @Transactional
 public interface IFilmDao extends JpaRepository<Film, Long>{
+	
+	public Film getByTitre(String name);
 
 } // fin interface 

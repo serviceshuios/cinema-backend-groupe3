@@ -26,11 +26,6 @@ public class RestProjectionFilmController {
 	@Autowired
 	private IProjectionService service;
 	
-	@Autowired
-	private IFilmService serviceFilm;
-	
-	@Autowired
-	private ISalleService serviceSalle;
 	
 	// lister toutes les projections
 	@RequestMapping (value = "/projections",
@@ -43,68 +38,42 @@ public class RestProjectionFilmController {
 	} // fin getAll
 	
 	// récupérer une projection
-	@RequestMapping(value = "/projections/{numSalle}/{numFilm}", //
+	@RequestMapping(value = "/projections/{numProjection}", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    public ProjectionFilm getProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm) {
-		//Création de la clé composée
-		SalleFilmId sfid = new SalleFilmId();
-		sfid.setFilm(serviceFilm.getById(numFilm));
-		sfid.setSalle(serviceSalle.getById(numSalle));
-		return service.getProjectionFilm(sfid);
+    public ProjectionFilm getProjection(@PathVariable("numProjection") Long numProjection) {
+		return service.getProjectionFilm(numProjection);
     }
  
-	// ajouter une projection
-	@RequestMapping(value = "/projections/{numSalle}/{numFilm}/{numDate}/{numPrix}", //
+
+	@RequestMapping(value = "/projections/", //
             method = RequestMethod.POST, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-	public ProjectionFilm ajouterProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm, @PathVariable("numPrix") Double prix, @PathVariable("numDate") Date date) {
-		//Création de la clé composée
-		SalleFilmId sfid = new SalleFilmId();
-		sfid.setFilm(serviceFilm.getById(numFilm));
-		sfid.setSalle(serviceSalle.getById(numSalle));
-		//Création de la projectionFilm
-		ProjectionFilm projectionFilm = new ProjectionFilm();
-		projectionFilm.setId(sfid);
-		projectionFilm.setDateProjection(new Date());
-		projectionFilm.setPrix(prix);
-		//Ajout la filiereFormation
-		return service.create(projectionFilm);
+	public ProjectionFilm ajouterProjection(@RequestBody ProjectionFilm projection) {
+
+		return service.create(projection);
 	}
 	
+	
 	// modifier une projection
-	@RequestMapping(value = "/projections/{numSalle}/{numFilm}/{numNouveauFilm}/{prix}", //
+	@RequestMapping(value = "/projections/", //
             method = RequestMethod.PUT, //
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-	public ProjectionFilm modifierProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm, @PathVariable("numNouveauFilm") Long numNouveauFilm, @PathVariable("prix") Double prix) {
-		//Création de la clé composée
-		SalleFilmId sfid = new SalleFilmId();
-		sfid.setFilm(serviceFilm.getById(numFilm));
-		sfid.setSalle(serviceSalle.getById(numSalle));
-		//Récupération de la projectionFilm précédente
-		ProjectionFilm projectionFilm = service.getProjectionFilm(sfid);
-		//Suppression de la projection précédente par sa clé composée
-		service.deleteProjectionFilm(sfid);
-		//Mise à jour de la clé composée
-		sfid.setFilm(serviceFilm.getById(numNouveauFilm));
-		//Envoie de la mise à jour
-		projectionFilm.setPrix(prix);
-		return service.update(projectionFilm);
+	public ProjectionFilm modifierProjection(@RequestBody ProjectionFilm projection) {
+
+		return service.update(projection);
 	}
 	
 	// supprimer une projection
-	@RequestMapping(value = "/projections/{numSalle}/{numFilm}", //
+	@RequestMapping(value = "/projections/{idProjection}", //
 			method = RequestMethod.DELETE, //
 	        produces = { MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public boolean deleteProjection(@PathVariable("numSalle") Long numSalle, @PathVariable("numFilm") Long numFilm) {
-		//Création de la clé composée
-		SalleFilmId sfid = new SalleFilmId();
-		sfid.setFilm(serviceFilm.getById(numFilm));
-		sfid.setSalle(serviceSalle.getById(numSalle));
-		return service.deleteProjectionFilm(sfid);
+	public boolean deleteProjection(@PathVariable("idProjection") Long idProjection) {
+
+		return service.deleteProjectionFilm(idProjection);
 	 }
 }
