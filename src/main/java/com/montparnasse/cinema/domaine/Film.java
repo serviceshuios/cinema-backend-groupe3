@@ -6,38 +6,42 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "Film", //
+uniqueConstraints = { //
+        @UniqueConstraint(name = "FILM_UK", columnNames = "Film_Titre") })
 public class Film implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Film_Id", nullable = false)
 	private Long id;
-	
+	@Column(name = "Film_titre", nullable = false)
 	private String titre;
-	
 	private double duree;
-	
+	private String realisateur;
 	private String description;
-	
 	private String photo;
-	
 	private Date dateSortie;
 	
 	@ManyToOne
 	@JsonIgnore
 	private Categorie categorie;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "id.film")
-	@JsonIgnore
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "film")
+//	@JsonIgnore
 	private List<ProjectionFilm> projectionFilm = new ArrayList<ProjectionFilm>();
 
 	public Long getId() {
@@ -96,6 +100,14 @@ public class Film implements Serializable{
 		this.categorie = categorie;
 	}
 
+	public String getRealisateur() {
+		return realisateur;
+	}
+
+	public void setRealisateur(String realisateur) {
+		this.realisateur = realisateur;
+	}
+	
 	public List<ProjectionFilm> getProjectionFilm() {
 		return projectionFilm;
 	}

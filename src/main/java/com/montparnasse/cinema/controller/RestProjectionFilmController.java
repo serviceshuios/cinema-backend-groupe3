@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.montparnasse.cinema.domaine.ProjectionFilm;
-import com.montparnasse.cinema.domaine.SalleFilmId;
 import com.montparnasse.cinema.service.IFilmService;
 import com.montparnasse.cinema.service.IProjectionService;
 import com.montparnasse.cinema.service.ISalleService;
@@ -43,7 +42,7 @@ public class RestProjectionFilmController {
             produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
     public ProjectionFilm getProjection(@PathVariable("numProjection") Long numProjection) {
-		return service.getProjectionFilm(numProjection);
+		return service.getById(numProjection);
     }
  
 
@@ -74,6 +73,6 @@ public class RestProjectionFilmController {
 	@ResponseBody
 	public boolean deleteProjection(@PathVariable("idProjection") Long idProjection) {
 
-		return service.deleteProjectionFilm(idProjection);
+		return service.deleteById(idProjection);
 	 }
 }

@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.montparnasse.cinema.domaine.ProjectionFilm;
-import com.montparnasse.cinema.domaine.SalleFilmId;
 @Repository
 @Transactional
-public interface IProjectionDao extends JpaRepository<ProjectionFilm, SalleFilmId> {
+public interface IProjectionDao extends JpaRepository<ProjectionFilm, Long> {
 
 } // fin interface
