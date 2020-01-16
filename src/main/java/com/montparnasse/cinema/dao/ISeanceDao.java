@@ -15,6 +15,6 @@ import com.montparnasse.cinema.domaine.Seance;
 public interface ISeanceDao extends JpaRepository<Seance, Long> {
 
 	@Query("select s.projectionFilm FROM Seance s WHERE s.id= :pId")
-	public List<ProjectionFilm> getProjectionSeance (@Param("pId") Long id);
+	public ProjectionFilm getProjectionSeance (@Param("pId") Long id);
 	
 } // fin interface
