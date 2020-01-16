@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.ICinemaDao;
 import com.montparnasse.cinema.domaine.Cinema;
+import com.montparnasse.cinema.domaine.Film;
+import com.montparnasse.cinema.domaine.Salle;
 
 
 @Service
@@ -50,4 +52,11 @@ public class CinemaServiceImpl implements ICinemaService{
 	public List<Cinema> getAll() {
 		return daoCinema.findAll();
 	}
+	
+	@Override
+	public List<Salle> getSallesCinema (Long id) {
+		return daoCinema.getSallesCinema(id);
+	}
+	
+	
 }
