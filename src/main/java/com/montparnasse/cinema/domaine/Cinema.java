@@ -30,6 +30,7 @@ public class Cinema implements Serializable{
 	private Ville ville;
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "cinema")
+	@JsonIgnore
 	List<Salle> salles;
 	
 	/*------constructeur vide----*/

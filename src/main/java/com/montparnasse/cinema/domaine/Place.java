@@ -24,7 +24,6 @@ public class Place implements Serializable{
 	private double altitude;
 	
 	@ManyToOne
-	@JsonIgnore
 	private Salle salle;
 	
 	@OneToMany(mappedBy = "place")

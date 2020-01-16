@@ -22,7 +22,6 @@ public class Ticket implements Serializable{
 	private boolean reservee;
 	
 	@ManyToOne
-	@JsonIgnore
 	private ProjectionFilm projectionFilm;
 	
 

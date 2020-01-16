@@ -32,10 +32,10 @@ public class Salle implements Serializable{
 	private int nombrePlaces;
 	
 	@ManyToOne
-	@JsonIgnore
 	private Cinema cinema;
 	
 	@OneToMany(cascade = CascadeType.REMOVE,mappedBy = "salle")
+	@JsonIgnore
 	private List<Place> places;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "salle")

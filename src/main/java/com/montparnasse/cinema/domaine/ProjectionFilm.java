@@ -44,6 +44,7 @@ public class ProjectionFilm implements Serializable{
 	private Seance seance;
 	
 	@OneToMany(mappedBy = "projectionFilm")
+	@JsonIgnore
 	private List<Ticket> tickets = new ArrayList<Ticket>();
 	
 	
