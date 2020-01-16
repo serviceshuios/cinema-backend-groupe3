@@ -45,7 +45,7 @@ public class RestSeanceController {
 			method = RequestMethod.GET, //
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public ProjectionFilm getSeanceProjection(@PathVariable("numSeance") Long id) {
+	public List<ProjectionFilm> getSeanceProjection(@PathVariable("numSeance") Long id) {
 		return service.afficherProjectionSeance(id);
 	}
 

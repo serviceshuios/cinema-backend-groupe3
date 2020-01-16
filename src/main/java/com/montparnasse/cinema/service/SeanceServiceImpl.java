@@ -52,7 +52,7 @@ public class SeanceServiceImpl implements ISeanceService{
 	}
 
 	@Override
-	public ProjectionFilm afficherProjectionSeance(Long id) {
+	public List<ProjectionFilm> afficherProjectionSeance(Long id) {
 		return daoSeance.getProjectionSeance(id);
 	}
 }

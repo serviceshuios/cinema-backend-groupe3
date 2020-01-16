@@ -7,6 +7,6 @@ import com.montparnasse.cinema.domaine.Seance;
 
 public interface ISeanceService extends IService<Seance>{
 
-	public ProjectionFilm afficherProjectionSeance (Long id);
+	public List<ProjectionFilm> afficherProjectionSeance (Long id);
 	
 }

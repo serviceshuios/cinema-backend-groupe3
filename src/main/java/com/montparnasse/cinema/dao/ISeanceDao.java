@@ -1,5 +1,7 @@
 package com.montparnasse.cinema.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,6 +15,6 @@ import com.montparnasse.cinema.domaine.Seance;
 public interface ISeanceDao extends JpaRepository<Seance, Long> {
 
 	@Query("select s.projectionFilm FROM Seance s WHERE s.id= :pId")
-	public ProjectionFilm getProjectionSeance (@Param("pId") Long id);
+	public List<ProjectionFilm> getProjectionSeance (@Param("pId") Long id);
 	
 } // fin interface
