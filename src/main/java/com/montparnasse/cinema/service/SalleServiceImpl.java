@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.ISalleDao;
+import com.montparnasse.cinema.domaine.Place;
+import com.montparnasse.cinema.domaine.ProjectionFilm;
 import com.montparnasse.cinema.domaine.Salle;
 
 @Service
@@ -53,5 +55,16 @@ public class SalleServiceImpl implements ISalleService{
 	@Override
 	public Salle getByName(String name) {
 		return daoSalle.getByName(name);
+	}
+
+	@Override
+	public List<Place> getPlacesSalle(Long id) {
+		return daoSalle.getPlacesSalle(id);
+	}
+
+	@Override
+	public List<ProjectionFilm> getProjectionsSalle(Long id) {
+
+		return daoSalle.getProjectionsSalle(id);
 	}
 }

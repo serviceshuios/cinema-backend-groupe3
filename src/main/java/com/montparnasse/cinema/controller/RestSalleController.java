@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.montparnasse.cinema.domaine.Place;
+import com.montparnasse.cinema.domaine.ProjectionFilm;
 import com.montparnasse.cinema.domaine.Salle;
 import com.montparnasse.cinema.service.ISalleService;
 
@@ -37,15 +40,15 @@ public class RestSalleController {
 	public Salle getSalle(@PathVariable("numSalle") Long id) {
 		return service.getById(id);
 	}
-	
+
 	// récupérer une salle via le nom
-		@RequestMapping(value = "/salles/byName/{nomSalle}", //
-				method = RequestMethod.GET, //
-				produces = { MediaType.APPLICATION_JSON_VALUE })
-		@ResponseBody
-		public Salle getSalleByName(@PathVariable("nomSalle") String name) {
-			return service.getByName(name);
-		}
+	@RequestMapping(value = "/salles/byName/{nomSalle}", //
+			method = RequestMethod.GET, //
+			produces = { MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public Salle getSalleByName(@PathVariable("nomSalle") String name) {
+		return service.getByName(name);
+	}
 
 	// ajouter une salle
 	@RequestMapping(value = "/salles", //
@@ -72,6 +75,22 @@ public class RestSalleController {
 	@ResponseBody
 	public boolean deleteSalle(@PathVariable("numSalle") Long id) {
 		return service.deleteById(id);
+	}
+
+	// récuperer les places d'une salle
+	@RequestMapping(value = "/salles/{numSalle}/places", method = RequestMethod.GET, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public List<Place> getPlacesSalle(@PathVariable("numSalle") Long id) {
+		return service.getPlacesSalle(id);
+	}
+
+	// récuperer les projectionsFilms d'une salle
+	@RequestMapping(value = "/salles/{numSalle}/projections", method = RequestMethod.GET, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public List<ProjectionFilm> getProjectionsSalle(@PathVariable("numSalle") Long id) {
+		return service.getProjectionsSalle(id);
 	}
 
 } // fin classe
