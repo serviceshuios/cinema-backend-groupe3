@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.montparnasse.cinema.domaine.ProjectionFilm;
+import com.montparnasse.cinema.domaine.Ticket;
 import com.montparnasse.cinema.service.IFilmService;
 import com.montparnasse.cinema.service.IProjectionService;
 import com.montparnasse.cinema.service.ISalleService;
@@ -35,6 +36,16 @@ public class RestProjectionFilmController {
 		List<ProjectionFilm> liste = service.getAll();
 		return liste;
 	} // fin getAll
+	
+	// lister touts les tickets des projections
+		@RequestMapping (value = "/projections/{idProjection}/tickets",
+						method = RequestMethod.GET,
+						produces = {MediaType.APPLICATION_JSON_VALUE})
+		@ResponseBody
+		public List<Ticket> getAllTicketsProjections(@PathVariable("idProjection") Long id) {
+			List<Ticket> liste = service.getTicketsProjection(id);
+			return liste;
+		} // fin getAllTicketsProjections
 	
 	// récupérer une projection
 	@RequestMapping(value = "/projections/{numProjection}", //

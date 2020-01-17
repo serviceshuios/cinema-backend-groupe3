@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.montparnasse.cinema.dao.IProjectionDao;
 import com.montparnasse.cinema.domaine.ProjectionFilm;
+import com.montparnasse.cinema.domaine.Ticket;
 
 @Service
 public class ProjectionServiceImpl implements IProjectionService{
@@ -48,6 +49,11 @@ public class ProjectionServiceImpl implements IProjectionService{
 	@Override
 	public List<ProjectionFilm> getAll() {
 		return daoProjection.findAll();
+	}
+
+	@Override
+	public List<Ticket> getTicketsProjection(Long id) {
+		return daoProjection.getTicketsProjection(id);
 	}
 	
 }
